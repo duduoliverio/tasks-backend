@@ -29,8 +29,10 @@ pipeline{
 		}
 		stage ('API Test'){
 			steps{
-				git url: 'https://github.com/duduoliverio/tasks-apitest'
-				bat 'mvn test'
+				dir('api-test'){
+					git url: 'https://github.com/duduoliverio/tasks-apitest'
+					bat 'mvn test'
+				}
 			}
 		}
 	}
