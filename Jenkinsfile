@@ -43,6 +43,14 @@ pipeline{
 				}
 			}
 		}
+		stage ('Functional Test'){
+			steps{
+				dir('functional-test'){
+					git url: 'https://github.com/duduoliverio/tasks-funcional-test'
+					bat 'mvn test'
+				}
+			}
+		}
 	}
 }
 
